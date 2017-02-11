@@ -11,10 +11,21 @@
 
         <!-- A little Sortable Tables is all i see -->
         <link rel='stylesheet' href="/assets/css/jquery.dataTables.min.css">
-
-        <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
+        <link rel="stylesheet" type="text/css" href="/assets/css/template.css"/>
 	</head>
 	<body>
+		<div id="links">
+			<div class="navbar">
+                <div class="navbar-inner"> 
+					<a class="brand" href="/"><img height="125px;" width="auto;" src="/assets/images/UmbrellaCorporation.png"/></a>                  				
+					<a style="color:white;" href="http://project.local:88">Main</a>
+					<a style="color:white;" href="http://project.local:88/parts">Parts</a>
+					<a style="color:white;" href="http://project.local:88/assembly">Assembly</a>
+					<a style="color:white;" href="http://project.local:88/history">History</a>
+					<a style="color:white;" href="http://project.local:88/about">About</a> 
+				</div>
+            </div>    
+		</div>
       <div id="container">
 			 {content}
       </div>
