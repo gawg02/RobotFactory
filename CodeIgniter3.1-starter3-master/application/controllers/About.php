@@ -4,6 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class About extends Application
 {
+    function __construct()
+    {
+        parent::__construct();
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -19,8 +23,17 @@ class About extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'about';
+        $this->load->model('Team');
+		
+        $source = $this->Team->all();
+        $members = array();
+        foreach ($source as $record)
+        {
+            $members[] = array ('name' => $record['name'], 'face' => $record['face'], 'quote' => $record['quote'], 'blurb' => $record['blurb']);
+        }
+
+        $this->data['team'] = $members;
+        $this->data['pagebody'] = 'about';
 		$this->render(); 
 	}
-
 }
