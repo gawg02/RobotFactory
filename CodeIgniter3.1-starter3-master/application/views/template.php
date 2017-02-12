@@ -19,7 +19,7 @@
                 <div class="navbar-inner"> 
 					<a class="brand" href="/"><img height="125px;" width="auto;" src="/assets/images/UmbrellaCorporation.png"/></a>                  				
 					<a style="color:white;" href="http://project.local:88">Main</a>
-					<a style="color:white;" href="http://robotfactory.local/parts">Parts</a>
+					<a style="color:white;" href="http://project.local:88/parts">Parts</a>
 					<a style="color:white;" href="http://project.local:88/assembly">Assembly</a>
 					<a style="color:white;" href="http://project.local:88/history">History</a>
 					<a style="color:white;" href="http://project.local:88/about">About</a> 
