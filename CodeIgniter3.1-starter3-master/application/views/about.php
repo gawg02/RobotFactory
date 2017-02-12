@@ -9,8 +9,12 @@
    
     <div class = 'col-md-12'>
         {team}
-        <span class='col-md-4' id="teammembers"><img src="/assets/images/faces/{face}" title="{quote}"/></a></span>
-        <h3>{name}</h3>
+        <div class='col-md-4'>
+            <span  id="teammembers">
+                <a href="/teammate/{id}"><img src="/assets/images/faces/{face}" title="{quote}"/></a>
+            </span>
+            <h3>{name}</h3>
+        </div>
         {/team}
    </div>
 
