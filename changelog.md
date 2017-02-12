@@ -5,6 +5,7 @@ _If your feature moves from one to another, add a log stating it's been moved._
 ##New Features
 * This is an example. (JC)
 * Created new About page. Moved to Changed. (JC)
+* Added new individual about pages. Moved to changed. (JC)
 
 ##Changed Features
 * Changelog edited with examples. (JC)
@@ -12,6 +13,7 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Fixed changelog markdown [please see this link on markdown](https://guides.github.com/features/mastering-markdown/) (JC)
 * Fixed Markdown issues in README (JC)
 * Added stock images to About page (JC)
+* Made minor changes to individual pages. (JC)
 
 ##Completed Feature
 * added sections to changelog. (JC)
