@@ -1,8 +1,7 @@
 <h1>HISTORY VIEW</h1>
 
 <div id="body">
-	<p>This is the history page</p>
-	<div id="container">        
+	<p>This is the history page</p>       
 		<div class="row">
 			<table style="border: 1px solid white;">
 				<tr>
@@ -23,5 +22,4 @@
 			{/history}
 			</table>
 		</div>
-	</div>
 </div>
