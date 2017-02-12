@@ -18,4 +18,3 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Added homepage (BN)
 * Added Template Page (BN)
 * Added parts page (AH)
-* Added history page (RD)
