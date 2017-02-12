@@ -17,21 +17,21 @@
 
 ##Responsibilities
 * Jay
-** About Page
-** Git team repo integrity
+    * About Page
+    * Git team repo integrity
 
 * Bryn
-** Homepage
+    * Homepage
 
 * Greg
-** Template view
-** Assembly page
+    * Template view
+    * Assembly page
 
 * Andrei
-** Parts page
+    * Parts page
 
 * Renz
-** History page
+    * History page
 
 ##Misc
 * Please see [this link](https://guides.github.com/features/mastering-markdown/) to do proper markdown.

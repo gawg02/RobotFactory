@@ -55,5 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['parts/([a-zA-Z][0-9])'] = 'part/display/$1';
 $route['parts'] = 'partsFactory';
+$route['about'] = 'about';
 
 
