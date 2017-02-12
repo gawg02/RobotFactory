@@ -14,3 +14,5 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * added sections to changelog. (JC)
 
 * Added parts page
+* Added homepage (BN)
+* Added Template Page (BN)
