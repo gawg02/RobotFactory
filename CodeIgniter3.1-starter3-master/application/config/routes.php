@@ -57,5 +57,7 @@ $route['parts/([a-zA-Z][0-9])'] = 'part/display/$1';
 $route['parts'] = 'partsFactory';
 $route['about'] = 'about/index';
 $route['teammate/([a-zA-Z]+)'] = 'about/member/$1';
+$route['history'] = "HistoryController/index";
+
 
 
