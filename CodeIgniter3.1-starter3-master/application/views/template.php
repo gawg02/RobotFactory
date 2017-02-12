@@ -18,11 +18,11 @@
 			<div class="navbar">
                 <div class="navbar-inner"> 
 					<a class="brand" href="/"><img height="125px;" width="auto;" src="/assets/images/UmbrellaCorporation.png"/></a>                  				
-					<a style="color:white;" href="/">Main</a>
-					<a style="color:white;" href="/parts">Parts</a>
-					<a style="color:white;" href="/assembly">Assembly</a>
-					<a style="color:white;" href="/history">History</a>
-					<a style="color:white;" href="/about">About</a> 
+					<a style="color:white;" href="http://project.local:88">Main</a>
+					<a style="color:white;" href="http://robotfactory.local/parts">Parts</a>
+					<a style="color:white;" href="http://project.local:88/assembly">Assembly</a>
+					<a style="color:white;" href="http://project.local:88/history">History</a>
+					<a style="color:white;" href="http://project.local:88/about">About</a> 
 				</div>
             </div>    
 		</div>
