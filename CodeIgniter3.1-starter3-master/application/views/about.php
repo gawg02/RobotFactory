@@ -6,8 +6,12 @@
     <h1>About Team Elderberry!</h1>
 
     <p>This is a student project for COMP4711 at BCIT. There is no affiliation with us and any company, fictional or otherwise.</p>
-    {team}
-    <span class = 'col-md-3' id = "teammembers"><img src="/assets/images/faces/{face}" title="{quote}"/></a></span>
-    <h3>{name}</h3>
-    {/team}
+   
+    <div class = 'col-md-12'>
+        {team}
+        <span class='col-md-4' id="teammembers"><img src="/assets/images/faces/{face}" title="{quote}"/></a></span>
+        <h3>{name}</h3>
+        {/team}
+   </div>
+
 </span>
