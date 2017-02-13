@@ -24,3 +24,4 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Template, Homepage, Commented (BN)
 * Added parts page (AH)
 * Added history page (RD)
+* Added Assembly page (GL)
