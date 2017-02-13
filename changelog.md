@@ -14,11 +14,14 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Fixed Markdown issues in README (JC)
 * Added stock images to About page (JC)
 * Made minor changes to individual pages. (JC)
+* Added Images for menu and background (BN)
+* Made Minor changes to about, history, members pages (BN)
 
 ##Completed Feature
 * added sections to changelog. (JC)
 * Added homepage (BN)
 * Added Template Page (BN)
+* Template, Homepage, Commented (BN)
 * Added parts page (AH)
 * Added history page (RD)
 * Added Assembly page (GL)
