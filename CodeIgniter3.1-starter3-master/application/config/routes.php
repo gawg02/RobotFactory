@@ -58,6 +58,7 @@ $route['parts'] = 'partsFactory';
 $route['about'] = 'about/index';
 $route['teammate/([a-zA-Z]+)'] = 'about/member/$1';
 $route['history'] = "HistoryController/index";
+$route['assembly'] = 'assemblycon';
 
 
 
