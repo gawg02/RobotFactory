@@ -4,7 +4,7 @@ class Team extends CI_Model
 {
     private $team = array(
         array(
-            'id' => '1',
+            'id' => 'jcoughlan',
             'name' => 'Jay Coughlan',
             'face' => 'jcoughlan.jpg',
             'quote' => 'Yes, I exist',
@@ -12,7 +12,7 @@ class Team extends CI_Model
         ),
 
         array(
-            'id' => '2',
+            'id' => 'bnewman',
             'name' => 'Bryn Newman',
             'face' => 'jcoughlan.jpg',
             'quote' => 'Howdy do?',
@@ -20,7 +20,7 @@ class Team extends CI_Model
         ),
 
         array(
-            'id' => '3',
+            'id' => 'glittle',
             'name' => 'Greg Little',
             'face' => 'jcoughlan.jpg',
             'quote' => 'Gwent, man, gwent.',
@@ -28,7 +28,7 @@ class Team extends CI_Model
         ),
 
         array(
-            'id' => '4',
+            'id' => 'ahristea',
             'name' => 'Andrei Hristea',
             'face' => 'jcoughlan.jpg',
             'quote' => 'Sweet home Alabama!',
@@ -36,7 +36,7 @@ class Team extends CI_Model
         ),
 
         array(
-            'id' => '5',
+            'id' => 'rdionglay',
             'name' => 'Renz Dionglay',
             'face' => 'jcoughlan.jpg',
             'quote' => '...',
@@ -46,7 +46,7 @@ class Team extends CI_Model
 
     public function getMember($which)
     {
-        foreach($this->data as $record)
+        foreach($this->team as $record)
             if($record['id'] == $which)
                 return $record;
         return null;

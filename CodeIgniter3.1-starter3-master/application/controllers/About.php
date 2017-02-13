@@ -29,11 +29,34 @@ class About extends Application
         $members = array();
         foreach ($source as $record)
         {
-            $members[] = array ('name' => $record['name'], 'face' => $record['face'], 'quote' => $record['quote'], 'blurb' => $record['blurb']);
+            $members[] = array ('id' => $record['id'], 'name' => $record['name'], 'face' => $record['face'], 'quote' => $record['quote'], 'blurb' => $record['blurb']);
         }
 
         $this->data['team'] = $members;
         $this->data['pagebody'] = 'about';
 		$this->render(); 
 	}
+
+	
+	public function member($person)
+	{
+		$this->load->model('Team');
+
+		$member = $this->Team->getMember($person);
+
+		//$member[] = array('id' => $record['id'], 'name' => $record['name'], 'face' => $record['face'], 'quote' => $record['quote'], 'blurb' => $record['blurb']);
+
+		$this->data['face'] = $member['face'];
+		$this->data['name'] = $member['name'];
+		$this->data['quote'] = $member['quote'];
+		
+		$myfile = fopen("assets/text/blurbs/".$member['blurb'], "r") or die("Unable to open file!");
+		$blurble =  fread($myfile,filesize("assets/text/blurbs/".$member['blurb']));
+		fclose($myfile);
+		$this->data['blurb'] = $blurble;
+		$this->data['pagebody'] = 'member';
+		$this->render();
+		
+	}
+
 }
