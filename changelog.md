@@ -25,3 +25,5 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Added parts page (AH)
 * Added history page (RD)
 * Added Assembly page (GL)
+* Updated Team Responsibilities (JC)
+* Fixed Nesting Issue (JC)
