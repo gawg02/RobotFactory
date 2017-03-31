@@ -14,7 +14,7 @@ class Team extends CI_Model
         array(
             'id' => 'bnewman',
             'name' => 'Bryn Newman',
-            'face' => 'jcoughlan.jpg',
+            'face' => 'bnewman.jpg',
             'quote' => 'Howdy do?',
             'blurb' => 'jblurb.txt'
         ),
