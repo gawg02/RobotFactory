@@ -16,6 +16,8 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Made minor changes to individual pages. (JC)
 * Added Images for menu and background (BN)
 * Made Minor changes to about, history, members pages (BN)
+* created a database hid the database.php (GL)
+* fixed the assembly page (hopefully), changed assembly.php, AssemblyCon.php, Assembly.php (GL)
 
 ##Completed Feature
 * added sections to changelog. (JC)
@@ -27,3 +29,4 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Added Assembly page (GL)
 * Updated Team Responsibilities (JC)
 * Fixed Nesting Issue (JC)
+* fixed Assembly page (GL)
