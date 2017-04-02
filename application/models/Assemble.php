@@ -10,7 +10,7 @@ class Assemble extends CI_Model{
 	* makes all of the part data able to be used by the webpage
 	*/
 	public function all(){
-			$parts = "";
+		$parts="";
  		foreach($this->partsDatabase->all() as $part){
 			$parts[] = array(
 				'part'			=>	$part->partID,
@@ -45,7 +45,7 @@ class Assemble extends CI_Model{
 	* gets the information from the database and uses that to filter by model a,b,c,w,r
 	*/
 	public function getByModel($type){
-		$parts = "";
+		$parts="";
 		foreach($this->partsDatabase->all() as $part){
 			if(substr($part->partCode,0,1) == $type || substr($part->partCode,0,1) == strtolower($type) )
 				$parts[] = array(
@@ -64,7 +64,7 @@ class Assemble extends CI_Model{
 	* gets all of the completed bots out of the database and able to be desplayed
 	*/
 	public function allCompleted(){
-		$bots = "";
+		$bots="";
  		foreach($this->completeBots->all() as $bot){
 			$bots[] = array(
 				'model'			=>	$bot->model,
