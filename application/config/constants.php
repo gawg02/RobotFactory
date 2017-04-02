@@ -88,10 +88,20 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 | page sorts
 |-----------------------------------------------------------------------------
 */
-defined('FILTER_ALL') OR define('FILTER_ALL','all');
-defined('FILTER_A') OR define('FILTER_A','a');
-defined('FILTER_B') OR define('FILTER_B','b');
-defined('FILTER_C') OR define('FILTER_C','c');
-defined('FILTER_M') OR define('FILTER_M','m');
-defined('FILTER_R') OR define('FILTER_R','r');
-defined('FILTER_W') OR define('FILTER_W','w');
+defined('FILTER_ALL') OR define('FILTER_ALL','ALL');
+defined('FILTER_A') OR define('FILTER_A','A');
+defined('FILTER_B') OR define('FILTER_B','B');
+defined('FILTER_C') OR define('FILTER_C','C');
+defined('FILTER_M') OR define('FILTER_M','M');
+defined('FILTER_R') OR define('FILTER_R','R');
+defined('FILTER_W') OR define('FILTER_W','W');
+/*
+|-----------------------------------------------------------------------------
+| user roles
+|-----------------------------------------------------------------------------
+*/
+defined('ROLE_GUEST') OR define('ROLE_GUEST', 'Guest');
+defined('ROLE_WORKER') OR define('ROLE_WORKER', 'Worker');
+defined('ROLE_SUPERVISOR') OR define('ROLE_SUPERVISOR', 'Supervisor');
+defined('ROLE_BOSS') OR define('ROLE_BOSS', 'Boss');
+?>

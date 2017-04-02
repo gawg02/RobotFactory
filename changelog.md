@@ -6,6 +6,8 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * This is an example. (JC)
 * Created new About page. Moved to Changed. (JC)
 * Added new individual about pages. Moved to changed. (JC)
+* created database (GL)
+* added models for each of the databse tables (GL)
 
 ##Changed Features
 * Changelog edited with examples. (JC)
@@ -16,8 +18,13 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Made minor changes to individual pages. (JC)
 * Added Images for menu and background (BN)
 * Made Minor changes to about, history, members pages (BN)
-* created a database hid the database.php (GL)
+* hid database.php (GL)
 * fixed the assembly page (hopefully), changed assembly.php, AssemblyCon.php, Assembly.php (GL)
+* implemented the use of a database in the assembly page (GL)
+* Made adjustments to homepage.php, template.php (BN)
+* Added in User Roles, No authentication so far (BN)
+* fixing an issue with assemble.php
+
 
 ##Completed Feature
 * added sections to changelog. (JC)
