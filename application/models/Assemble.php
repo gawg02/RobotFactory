@@ -1,90 +1,79 @@
 <?php
 
+/*
+* assemble class
+* takes information from the database and makes it usable by the webpage
+*/
 class Assemble extends CI_Model{
 	
-	private $stock = array(	
-		array(
-			'partId' 		=> '1',
-			'partCode'      => 'a1',
-            'caCode'        => '1a',
-            'plantBuiltAt'  => 'Strawberry',
-            'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		),
-		
-		array(
-              'partId'        => '2',
-              'partCode'      => 'b2',
-              'caCode'        => '2a',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		),
-		
-		array(
-              'partId'        => '3',
-              'partCode'      => 'c3',
-              'caCode'        => '3a',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		),
-	
-		array(
-              'partId'        => '4',
-              'partCode'      => 'm1',
-              'caCode'        => '4a',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		),
-		
-		array(
-              'partId'        => '5',
-              'partCode'      => 'r2',
-              'caCode'        => '5a',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		),
-		
-		array(
-              'partId'        => '6',
-              'partCode'      => 'a3',
-              'caCode'        => '6a',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		),
-				array(
-              'partId'        => '7',
-              'partCode'      => 'a3',
-              'caCode'        => '7a',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z"
-		)
-	);
-	
+	/*
+	* makes all of the part data able to be used by the webpage
+	*/
 	public function all(){
-		return $this->stock;
+			$parts = "";
+ 		foreach($this->partsDatabase->all() as $part){
+			$parts[] = array(
+				'part'			=>	$part->partID,
+				'partCode'		=>	$part->partCode,
+				'caCode'		=>	$part->caCode,
+				'plantBuiltAt'	=>	$part->plantBuiltAt,
+				'dateTimeBuilt'	=>	$part->dateTimeBuilt
+			); 
+		}
+			return $parts;
 	}
 	
+	/*
+	* determines whether a part is a head torso or body
+	*/
 		public function getPartType($partCode){
 		if(substr($partCode, 1, 2) == 1){
 			return "head";
 		}else if(substr($partCode, 1, 2) == 2){
 			return "torso";
 		}else if(substr($partCode, 1, 2) == 3){
-			return "body";
+			return "bottom";
 		}
 		return substr($partCode, 1, 2);
 	}
 	
+	public function getModel($type){ 
+		return substr($type,0,1);
+	}
 	
-	public function get($type){
-		$types = "";
-		foreach($this->stock as $part){
-			if(substr($part['partCode'],0,1) == $type)
-				$types[] = $part;
+	/*
+	* gets the information from the database and uses that to filter by model a,b,c,w,r
+	*/
+	public function getByModel($type){
+		$parts = "";
+		foreach($this->partsDatabase->all() as $part){
+			if(substr($part->partCode,0,1) == $type || substr($part->partCode,0,1) == strtolower($type) )
+				$parts[] = array(
+				'part'			=>	$part->partID,
+				'partCode'		=>	$part->partCode,
+				'caCode'		=>	$part->caCode,
+				'plantBuiltAt'	=>	$part->plantBuiltAt,
+				'dateTimeBuilt'	=>	$part->dateTimeBuilt
+			);
 				
 		}
-		return $types;
+		return $parts;
+	}
 	
-	
+	/*
+	* gets all of the completed bots out of the database and able to be desplayed
+	*/
+	public function allCompleted(){
+		$bots = "";
+ 		foreach($this->completeBots->all() as $bot){
+			$bots[] = array(
+				'model'			=>	$bot->model,
+				'headCaCode'		=>	$bot->headCaCode,
+				'torsoCaCode'		=>	$bot->torsoCaCode,
+				'bottomCaCode'	=>	$bot->bottomCaCode,
+			); 
+		}
+			return $bots;
 	}
 	
 }
