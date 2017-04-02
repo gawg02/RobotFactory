@@ -15,6 +15,15 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/template.css"/>
 	</head>
 	<body>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">User Role<b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a href="/">Guest</a></li>
+                  <li><a href="/">Worker</a></li>
+                  <li><a href="/">Supervisor</a></li>
+                  <li><a href="/">Boss</a></li>
+			</ul>
+		</li>  
 		<div id="links">
 			<!-- menu bar shared by all views -->
 			<div class="navbar">
