@@ -14,5 +14,8 @@
     <h3> Bottom Parts </h3>
     {bottomTable}
 
+    <h3> Build More Parts </h3>
+    <a href="./buildMoreParts" class="btn btn-primary" role="button"> Build More Parts </a>
+
   </div>
 </div>
