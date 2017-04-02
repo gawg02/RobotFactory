@@ -62,6 +62,31 @@ class Parts extends CI_Model {
     $this->data = array($this->bot1, $this->bot2, $this->bot3, $this->bot4, $this->bot5, $this->bot6);
 
     $this->sort($this->data);
+
+    $this->register();
+  }
+
+  public function register()
+  {
+
+    $response = file_get_contents('https://umbrella.jlparry.com/work/registerme/elderberry/47d1c9');
+
+    $response = explode(' ', $response);
+
+    if ( $response[0] != 'Ok' )
+      $this->data['pagebody'] = 'error'; 
+    else {
+      $this->data['pagebody'] = 'parts';
+      $apiKey = $response[1];
+    }
+
+    $data = array(
+      'apiKey' => $apiKey,
+      'alive' => 1
+      );
+
+    $this->db->insert("utility", $data);
+
   }
 
   public function getModel($partCode){

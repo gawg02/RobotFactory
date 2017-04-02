@@ -19,6 +19,7 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
+		$role = $this->session->userdata('userrole');
 		$this->data['pagebody'] = 'homepage';
 		$this->render(); 
 	}
