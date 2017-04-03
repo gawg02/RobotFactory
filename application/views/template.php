@@ -33,7 +33,7 @@
 							<li><a href="/">Supervisor</a></li>
 							<li><a href="/">Boss</a></li>
 						</ul>
-					<a style="color:white;" href="/manage">manage</a>
+					
 
 				</div>
             </div>    

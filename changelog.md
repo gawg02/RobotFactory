@@ -27,7 +27,7 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * fixing an issue with assemble.php
 * fixing an issue with assemble.php (GL)
 * added in manage page with log in and reboot (GL)
-
+* fixed some minor bugs allowed for sale of robot was missing the api key portion (GL)
 
 ##Completed Feature
 * added sections to changelog. (JC)
