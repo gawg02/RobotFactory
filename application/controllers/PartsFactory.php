@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PartsFactory extends Application {
 
-  $errorMsg = "There are no parts";
+  private $errorMsg = "There are no parts";
 
   function __construct(){
     parent::__construct();
@@ -44,21 +44,21 @@ class PartsFactory extends Application {
       $rows = $this->table->make_columns($topCells, 4);
       $this->data['topTable'] = $this->table->generate($rows);
     } else {
-      $this->data['topTable'] = $errorMsg;
+      $this->data['topTable'] = $this->errorMsg;
     }
 
     if ( isset($torsoCells) ){
       $rows = $this->table->make_columns($torsoCells, 4);
       $this->data['torsoTable'] = $this->table->generate($rows);
     } else {
-      $this->data['torsoTable'] = $errorMsg;
+      $this->data['torsoTable'] = $this->errorMsg;
     }
 
     if ( isset($bottomCells) ){
       $rows = $this->table->make_columns($bottomCells, 4);
       $this->data['bottomTable'] = $this->table->generate($rows);
     } else {
-      $this->data['bottomTable'] = $errorMsg;
+      $this->data['bottomTable'] = $this->errorMsg;
     }
 
 
