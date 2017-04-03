@@ -36,13 +36,13 @@ class PartsFactory extends Application {
     
     $this->table->set_template($parms);
 
-    $rows = $this->table->make_columns($topCells, 2);
+    $rows = $this->table->make_columns($topCells, 4);
     $this->data['topTable'] = $this->table->generate($rows);
 
-    $rows = $this->table->make_columns($torsoCells, 2);
+    $rows = $this->table->make_columns($torsoCells, 4);
     $this->data['torsoTable'] = $this->table->generate($rows);
 
-    $rows = $this->table->make_columns($bottomCells, 2);
+    $rows = $this->table->make_columns($bottomCells, 4);
     $this->data['bottomTable'] = $this->table->generate($rows);
 
 
