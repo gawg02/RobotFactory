@@ -34,6 +34,7 @@
 					<a style="color:white;" href="/assembly">Assembly</a>
 					<a style="color:white;" href="/history">History</a>
 					<a style="color:white;" href="/about">About</a> 
+					<a style="color:white;" href="/manage">manage</a>
 				</div>
             </div>    
 		</div>

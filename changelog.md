@@ -23,7 +23,8 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * implemented the use of a database in the assembly page (GL)
 * Made adjustments to homepage.php, template.php (BN)
 * Added in User Roles, No authentication so far (BN)
-* fixing an issue with assemble.php
+* fixing an issue with assemble.php (GL)
+* added in manage page with log in and reboot (GL)
 
 
 ##Completed Feature
