@@ -58,8 +58,8 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('parser');
-
+//$autoload['libraries'] = array('parser');
+$autoload['libraries'] = array('parser','database','session');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('history');
+$autoload['model'] = array('salesHistory','partsDatabase','completeBots','history');	// will need to remove history when we implement databases

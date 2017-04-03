@@ -6,6 +6,8 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * This is an example. (JC)
 * Created new About page. Moved to Changed. (JC)
 * Added new individual about pages. Moved to changed. (JC)
+* created database (GL)
+* added models for each of the databse tables (GL)
 
 ##Changed Features
 * Changelog edited with examples. (JC)
@@ -16,6 +18,16 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Made minor changes to individual pages. (JC)
 * Added Images for menu and background (BN)
 * Made Minor changes to about, history, members pages (BN)
+* hid database.php (GL)
+* fixed the assembly page (hopefully), changed assembly.php, AssemblyCon.php, Assembly.php (GL)
+* implemented the use of a database in the assembly page (GL)
+* Made adjustments to homepage.php, template.php (BN)
+* Added in User Roles, No authentication so far (BN)
+* Homepage grabs data from database (BN)
+* fixing an issue with assemble.php
+* fixing an issue with assemble.php (GL)
+* added in manage page with log in and reboot (GL)
+* fixed some minor bugs allowed for sale of robot was missing the api key portion (GL)
 
 ##Completed Feature
 * added sections to changelog. (JC)
@@ -27,3 +39,7 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Added Assembly page (GL)
 * Updated Team Responsibilities (JC)
 * Fixed Nesting Issue (JC)
+* fixed Assembly page (GL)
+* User Roles Added
+* Parts page - Build more parts has completed, required to integrate with manage page (AH)
+* Parts page - Finished Building and Buying parts (AH)

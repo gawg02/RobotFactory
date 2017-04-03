@@ -3,19 +3,17 @@
         <div class="container">
             <div id="content">
                 <h1>Robot Factory Team Elderberry</h1>
-                {content}
+                <p>Here at Umbrella Corp. we strive to provide the best in artificial robotic development around </p>
 				<p>Data to show:</p>
-				<p># of parts on hand{content}</p>
-				<p># assembled bots{content}</p>
-				<p>$ spent{content}</p>
-				<p>$ earned{content}</p>
+				<p>Number of parts on hand: {numParts}</p>
+				<p>Number of assembled bots: {numBots}</p>
+				<p>Total money spent: {moneySpent}</p>
+				<p>Total money earned:{moneyEarned}</p>
             </div>
             <div id="footer" class="span12">
                 Copyright &copy; 2015-2016,  <a href="mailto:someone@somewhere.com">Me</a>.
             </div>
         </div>
-        <script src="/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/assets/js/bootstrap.min.js"></script>
     </body>
 	
 </html>
