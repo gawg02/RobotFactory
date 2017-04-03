@@ -13,9 +13,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `robotFactory`
 --
-DROP DATABASE IF EXISTS robotfactory;
-CREATE DATABASE robotfactory;
-USE robotfactory;
+
 
 -- --------------------------------------------------------
 --
@@ -74,7 +72,6 @@ INSERT INTO `parts` (`partID`, `partCode`, `caCode`, `plantBuiltAt`, `dateTimeBu
 	('P5564', 'a3', 'A0000005', 'Strawberry', "2017-03-15 06:00:00");
 */
 
-
 -- --------------------------------------------------------
 
 --
@@ -108,9 +105,9 @@ INSERT INTO `completeBots` (`model`, `headCaCode`, `torsoCaCode`, `bottomCaCode`
 DROP TABLE IF EXISTS `salesHistory`;
 CREATE TABLE `salesHistory` (
 
+  `id` int(2)	NOT NULL,
   `cost` int(3),
   `transactionType`	varchar(8),
-  `id` int(2)	NOT NULL,
   `item` varchar(9) NOT NULL,
   `series` varchar(9)	DEFAULT NULL, 
   `model` varchar(1) DEFAULT NULL,
