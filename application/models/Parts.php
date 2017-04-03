@@ -2,64 +2,20 @@
 
 class Parts extends CI_Model {
 
-  var $bot1 = array(
-              'partId'        => 'abc123',
-              'partCode'      => 'a1',
-              'caCode'        => '123abc',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z");
-  
-  var $bot2 = array(
-              'partId'        => 'abc123',
-              'partCode'      => 'b2',
-              'caCode'        => '123abc',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z");
-  
-  var $bot3 = array(
-              'partId'        => 'abc123',
-              'partCode'      => 'c3',
-              'caCode'        => '123abc',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z");
-
-  var $bot4 = array(
-              'partId'        => 'abc123',
-              'partCode'      => 'm1',
-              'caCode'        => '123abc',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z");
-
-  var $bot5 = array(
-              'partId'        => 'abc123',
-              'partCode'      => 'r2',
-              'caCode'        => '123abc',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z");
-
-  var $bot6 = array(
-              'partId'        => 'abc123',
-              'partCode'      => 'a3',
-              'caCode'        => '123abc',
-              'plantBuiltAt'  => 'Strawberry',
-              'dateTimeBuilt' => "2010-07-05T06:00:00Z");
-
-  
-
   private $partId;    // unique
   private $partCode;
   private $caCode;    // Cert of Authenticity
   private $plantBuiltAt;
   private $dateTimeBuilt;
 
-  private $data;
+  private $data = array();
 
   private $topParts = array(), $torsoParts = array(), $bottomParts = array();
 
   public function __construct() {
     parent::__construct();
 
-    $this->data = array($this->bot1, $this->bot2, $this->bot3, $this->bot4, $this->bot5, $this->bot6);
+    $this->getAllParts();
 
     $this->sort($this->data);
   }
@@ -73,10 +29,6 @@ class Parts extends CI_Model {
   public function getPartType($partCode){
 
     return substr($partCode, 1, 2);
-
-  }
-
-  public function getRobotLine(){
 
   }
 
@@ -119,7 +71,21 @@ class Parts extends CI_Model {
 
   public function getAllParts(){
 
-    return $this->data;
+    $query = $this->db->get("parts");
+
+    foreach ($query->result() as $row)
+    {
+      $bot = array(
+              'partId'        => $row->partID,
+              'partCode'      => $row->partCode,
+              'caCode'        => $row->caCode,
+              'plantBuiltAt'  => $row->plantBuiltAt,
+              'dateTimeBuilt' => $row->dateTimeBuilt
+              );
+
+      array_push($this->data, $bot);
+    }
+
   }
 
   public function getTorsoParts(){
