@@ -14,18 +14,35 @@ SET time_zone = "+00:00";
 -- Database: `robotFactory`
 --
 
--- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- Table structure for storing session info
+-- alive = 1 means the session is still alive 
+-- alive = 0 means the session is dead
+
+DROP TABLE IF EXISTS `utility`;
+CREATE TABLE `utility` (
+
+  counter INT AUTO_INCREMENT PRIMARY KEY,
+  apiKey VARCHAR(255) UNIQUE NOT NULL,
+  alive BOOL DEFAULT 1      
+      
+);
+
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `parts`
 -- is used for holding all the robots parts
 --
 
-DROP TABLE IF EXISTS `Parts`;
-CREATE TABLE `Parts` (
+
+DROP TABLE IF EXISTS `parts`;
+CREATE TABLE `parts` (
   `partID` varchar(10) NOT NULL,
   `partCode` varchar(2) NOT NULL,
-  `caCode` varchar(8) NOT NULL,
+  `caCode` varchar(8),
   `plantBuiltAt` varchar(10) NOT NULL,
   `dateTimeBuilt` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -33,7 +50,7 @@ CREATE TABLE `Parts` (
 --
 -- Dumping data for table `parts`
 --
-
+/*
 INSERT INTO `parts` (`partID`, `partCode`, `caCode`, `plantBuiltAt`, `dateTimeBuilt`) VALUES
 	('A4556', 'A1', '462271', 'Strawberry', "2017-03-05 06:43:22.0"),
 	('A4543', 'A2', '156786', 'PeanutButter', "2017-03-08 05:08:12.0"),
@@ -52,7 +69,8 @@ INSERT INTO `parts` (`partID`, `partCode`, `caCode`, `plantBuiltAt`, `dateTimeBu
 	('A8845', 'R1', 'F0000002', 'PeanutButter', "2017-03-05 02:46:08"),
 	('A7754', 'M3', 'C0000003', 'PeanutButter', "2017-03-15 00:55:16"),
 	('M7750', 'R3', 'B0000004', 'Jam', "2017-03-18 6:00:00"),
-	('P5564', 'A3', 'A0000005', 'Strawberry', "2017-03-15 06:00:00");
+	('P5564', 'a3', 'A0000005', 'Strawberry', "2017-03-15 06:00:00");
+*/
 
 -- --------------------------------------------------------
 
@@ -86,9 +104,10 @@ INSERT INTO `completeBots` (`model`, `headCaCode`, `torsoCaCode`, `bottomCaCode`
 
 DROP TABLE IF EXISTS `salesHistory`;
 CREATE TABLE `salesHistory` (
+
   `id` int(2)	NOT NULL,
-  `cost` int(3) DEFAULT NULL,
-  `transactionType`	varchar(8) NOT NULL,
+  `cost` int(3),
+  `transactionType`	varchar(8),
   `item` varchar(9) NOT NULL,
   `series` varchar(9)	DEFAULT NULL, 
   `model` varchar(1) DEFAULT NULL,
@@ -101,6 +120,19 @@ CREATE TABLE `salesHistory` (
 -- Dumping data for table `salesHistory`
 --
 
+/*
+INSERT INTO `salesHistory`(`cost`, `transactionType`, `item`, `series`, `model`, `piece`, `shipment`, `timeofTransaction`) VALUES
+(100, 'purchase', 'parts Box', '', '', '', 'head office', "2017-03-31 09:00:00"),
+(25, 'sale', 'bot', 'household', 'C', '', 'nectarine', "2017-03-27 15:43:22"), 
+(50, 'sale', 'bot', 'butler', 'M', '', 'head office', "2017-03-20 09:33:18"), 
+(100, 'sale', 'bot', 'companion', 'W', '', 'huckleberry', "2017-03-14 20:45:29"), 
+(25, 'sale', 'bot', 'companion', 'W', '', 'mango', "2017-03-03 18:46:30"),
+(25, 'sale', 'bot', 'companion', 'W', '', 'apple', "2017-03-16 10:12:26"),
+(100, 'purchase', 'parts Box', '', '', '', 'ugli', '2017-03-25 11:50:16'),
+(5, 'return', 'part', 'household', 'A', 'torso', 'head office', "2017-03-22 12:15:04");
+*/
+
+
 INSERT INTO `salesHistory`(`id`,`cost`, `transactionType`, `item`, `series`, `model`, `piece`, `shipment`, `timeofTransaction`) VALUES
 (1, 100, 'purchase', 'parts Box', '', '', '', 'head office', "2017-03-31 09:00:00"),
 (2, 25, 'sale', 'bot', 'household', 'C', '', 'nectarine', "2017-03-27 15:43:22"), 
@@ -110,6 +142,7 @@ INSERT INTO `salesHistory`(`id`,`cost`, `transactionType`, `item`, `series`, `mo
 (6, 25, 'sale', 'bot', 'companion', 'W', '', 'apple', "2017-03-16 10:12:26"),
 (7, 100, 'purchase', 'parts Box', '', '', '', 'ugli', '2017-03-25 11:50:16'),
 (8, 5, 'return', 'part', 'household', 'A', 'torso', 'head office', "2017-03-22 12:15:04");
+
 
 -- --------------------------------------------------------
 

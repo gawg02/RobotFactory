@@ -44,7 +44,7 @@
 						</tr>
 						{completeBots}
 						<tr>
-							<td><input type="checkbox" name="pick{headCaCode}"/></td>
+							<td></td>
 							<td>{model}</td>
 							<td>{headCaCode}</td>
 							<td>{torsoCaCode}</td>
