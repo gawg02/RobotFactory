@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BuildMoreParts extends Application {
+class BuyMoreParts extends Application {
   
   function __construct(){
     parent::__construct();
@@ -10,10 +10,11 @@ class BuildMoreParts extends Application {
 
   public function index(){
 
-   
     $apiKey = $this->getApiKey();
 
-    $response = file_get_contents('https://umbrella.jlparry.com/work/mybuilds?key='.$apiKey);
+    $response = file_get_contents('https://umbrella.jlparry.com/work/buybox?key='.$apiKey);
+
+    var_dump($response);
 
     $newParts = json_decode($response, true);
 
@@ -21,7 +22,7 @@ class BuildMoreParts extends Application {
     $this->addHistory($newParts);
 
     redirect('partsFactory');
-
+    
   }
 
   public function getApiKey()

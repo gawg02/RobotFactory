@@ -9,10 +9,10 @@
 	</tr>
 	{partTable}
 	<tr>
-		<td>{part}</td>
-		<td>{partCpde}</td>
-		<td>{caCode}</td>
-		<td>{plant}</td>
+		<td class="col-md-3">{part}</td>
+		<td class="col-md-3">{partCpde}</td>
+		<td class="col-md-3">{caCode}</td>
+		<td class="col-md-3">{plant}</td>
 	</tr>
 	{/partTable}
 </table>
