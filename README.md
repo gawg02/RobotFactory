@@ -29,8 +29,8 @@
 
 * Bryn
     * Homepage (finished)
-    * User Rolls
-    * Homepage 2.0
+    * User Rolls (finished)
+    * Homepage 2.0 (finished)
 
 * Greg
     * Template view (finished)

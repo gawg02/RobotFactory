@@ -23,6 +23,7 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * implemented the use of a database in the assembly page (GL)
 * Made adjustments to homepage.php, template.php (BN)
 * Added in User Roles, No authentication so far (BN)
+* Homepage grabs data from database (BN)
 
 ##Completed Feature
 * added sections to changelog. (JC)
@@ -35,3 +36,4 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Updated Team Responsibilities (JC)
 * Fixed Nesting Issue (JC)
 * fixed Assembly page (GL)
+* User Roles Added
