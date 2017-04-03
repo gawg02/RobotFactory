@@ -4,54 +4,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Manage extends Application 
 {
-    function __construct()
-    {
-        parent::__construct();
-    }
 
-    /*
-        this is the manage page for the robotfactory. 
-        this page is meant to manage varous "boss" activities.
-    */
+  public function __construct() {
+      parent::__construct();
+  }
 
-    function index()
-    {
-        $this->data['header'] = NULL;
-        $this->data['pagebody'] = 'manage';
+  /*
+      this is the manage page for the robotfactory. 
+      this page is meant to manage varous "boss" activities.
+  */
+
+  public function index() {
+
+    $this->data['header'] = NULL;
+    $this->data['pagebody'] = 'manage';
 		$this->data['completeBots'] = $this->allCompleted();
 		$this->render();  
-    }
+  }
 
-    function reboot()
-    {
+  public function reboot(){
+
 		$apiKey = $this->getApiKey();
+		
 		$response = file_get_contents('https://umbrella.jlparry.com/work/rebootme?key='.$apiKey);
+		
 		$return = explode(" ", $response)[0];
+		
 		if($return ==='Ok'){
-	        $this->data['header'] = "reboot successfull";
+      $this->data['header'] = "reboot successfull";
 			$this->db->empty_table('completebots');
 			$this->db->empty_table('parts');
 			$this->db->empty_table('saleshistory');
 			$this->db->empty_table('utility');
 		}
 		$this->index();
-    }
-	
-	public function getApiKey()
-	{
+  }
+
+	public function getApiKey(){
+
 		$query = $this->db->query("SELECT apiKey FROM utility ORDER BY counter DESC LIMIT 1");
 
 		return ($query->result_array()[0]["apiKey"]);
 	}
-    function register()
-    {
+	
+	public function register(){
+
 		$data = $this->input->post();
 		$password = $this->input->post("password");
 		$username = $this->input->post("username");
+		
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$response = file_get_contents('https://umbrella.jlparry.com/work/registerme/'.$username.'/'.$password);
 			$return = explode(" ", $response);
-			echo $return[0];
+			
 			if($return[0] == 'Ok'){
 		        $this->data['header'] = "REGISTERED";
 				$apiKey = explode(" ", $response)[1];
@@ -105,5 +110,4 @@ class Manage extends Application
 			return $bots;
 	}
 	
-	//47d1c9
 }
