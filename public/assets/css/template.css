@@ -43,6 +43,7 @@ code {
 #body {
 	margin: 0 15px 0 15px;
 }
+
 /* Footer */
 p.footer {
 	text-align: right;
@@ -66,6 +67,12 @@ p.footer {
 	border: 1px solid #D0D0D0;
 	box-shadow: 0 0 8px #D0D0D0;
 	height: 125px;
-	width: 600px;
+	width: 700px;
 	font-family: verdana;
+}
+
+/* Dropdown */
+.dropdown-menu{
+	text-align:right;
+	right:0px;
 }
