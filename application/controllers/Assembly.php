@@ -94,9 +94,9 @@ class Assembly extends Application
 			if(substr($botHead->partCode,0,1) == substr($botTorso->partCode,0,1) && substr($botTorso->partCode,0,1) == substr($botBottom->partCode,0,1))
 				$completedBot->model = substr($botHead->partCode,0,1);
 			
-			$completedBot->headCaCode = $botHead->caCode;
-			$completedBot->torsoCaCode = $botTorso->caCode;
-			$completedBot->bottomCaCode = $botBottom->caCode;
+			$completedBot->headCaCode = $botHead->partID;
+			$completedBot->torsoCaCode = $botTorso->partID;
+			$completedBot->bottomCaCode = $botBottom->partID;
 			$this->completeBots->add($completedBot);
 			$this->partsDatabase->delete($botHead->partID);
 			$this->partsDatabase->delete($botTorso->partID);

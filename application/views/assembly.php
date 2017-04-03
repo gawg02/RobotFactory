@@ -7,8 +7,8 @@
 				<h3>filter: <a href="/filter/actor/ALL" ><button style="color:black;">All</button></a> <a href="/filter/actor/A" style="color:black;"><button style="color:black;">A</button></a> <a href="/filter/actor/B"><button style="color:black;">B</button></a> <a href="/filter/actor/C" ><button style="color:black;">C</button></a> <a href="/filter/actor/M" ><button style="color:black;">M</button></a> <a href="/filter/actor/R" ><button style="color:black;">R</button></a> <a href="/filter/actor/W" ><button style="color:black;">W</button></a></h3>
 				<form method='POST' action='/assembly/pressed'>
 					<div class = "row">
-						{hasParts}
 						<span class='col-md-6'>
+						{hasParts}
 							<table class = "table">
 								<tr>
 									<th></th>

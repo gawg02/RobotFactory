@@ -29,7 +29,7 @@ class BuyMoreParts extends Application {
   {
     $query = $this->db->query("SELECT apiKey FROM utility ORDER BY counter DESC LIMIT 1");
 
-    return ($query->result_array())[0]["apiKey"];
+    return ($query->result_array()[0]["apiKey"]);
   }
 
   public function addParts($parts)
