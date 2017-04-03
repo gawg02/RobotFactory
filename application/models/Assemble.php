@@ -15,7 +15,7 @@ class Assemble extends CI_Model{
 			$parts[] = array(
 				'part'			=>	$part->partID,
 				'partCode'		=>	$part->partCode,
-				'caCode'		=>	$part->caCode,
+				'caCode'		=>	$part->partID,
 				'plantBuiltAt'	=>	$part->plantBuiltAt,
 				'dateTimeBuilt'	=>	$part->dateTimeBuilt
 			); 
@@ -51,7 +51,7 @@ class Assemble extends CI_Model{
 				$parts[] = array(
 				'part'			=>	$part->partID,
 				'partCode'		=>	$part->partCode,
-				'caCode'		=>	$part->caCode,
+				'caCode'		=>	$part->partID,
 				'plantBuiltAt'	=>	$part->plantBuiltAt,
 				'dateTimeBuilt'	=>	$part->dateTimeBuilt
 			);
@@ -75,5 +75,11 @@ class Assemble extends CI_Model{
 		}
 			return $bots;
 	}
+	
+	
+	
+	
+	
+	
 	
 }

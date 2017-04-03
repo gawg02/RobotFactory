@@ -18,15 +18,34 @@
             <p> Team Name</p><input type="text" name ="username" style="color:black;" placeholder="elderberry" value = "elderberry"/>
 			<p>pasword</p>	<input type="text" name = "password" style="color:black;"/>
 			<input type= "submit" name = "login" value= "login" style="color:black;"/>
+			<br>
+			</br>
+			
             </form>
 
         </div>
-        <div class="4-md-col" id="control">
-            <!--This control is for augmenting key-value pairs for app configuration (still not sure what this means)-->
-        </div>
         <div class="4-md-col" id="buyme">
-            <!--this class is supposed to sell our created robots to the server on the chance one or more has been created
-            using the parts applied to the robot made.-->
+			<form method="POST" action="/Manage/sell">
+				<table class = "table">
+						<tr>
+							<th></th>
+							<th>model</th>
+							<th>head Ca code</th>
+							<th>torso Ca code</th>
+							<th>bottom Ca made</th>
+						</tr>
+						{completeBots}
+						<tr>
+							<td><input type="checkbox" name="pick{headCaCode}"/></td>
+							<td>{model}</td>
+							<td>{headCaCode}</td>
+							<td>{torsoCaCode}</td>
+							<td>{bottomCaCode}</td>
+						</tr>
+						{/completeBots}
+					</table>
+					<input type= "submit" name = "sell" value= "sell" style="color:black;"/>
+					</form>
         </div>
     </span>    
 </body>

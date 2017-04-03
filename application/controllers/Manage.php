@@ -21,20 +21,30 @@ class Manage extends Application
         $form = $this->Register->makeForm();
         $this->data['header'] = $form['heading'];
         $this->data['pagebody'] = 'manage';
+		$this->data['completeBots'] = $this->allCompleted();
 		$this->render();  
     }
 
     function reboot()
     {
-		$response = file_get_contents('https://umbrella.jlparry.com/work/rebootme?key=3048bc');
+		$apiKey = $this->getApiKey();
+		$response = file_get_contents('https://umbrella.jlparry.com/work/rebootme?key='.$apiKey);
 		$return = explode(" ", $response)[0];
-		echo $return," 11";
 		if($return ==='Ok'){
-			// need to empty all data 
+			$this->db->empty_table('completebots');
+			$this->db->empty_table('parts');
+			$this->db->empty_table('saleshistory');
+			$this->db->empty_table('utility');
 		}
 		$this->index();
     }
+	
+	public function getApiKey()
+	{
+		$query = $this->db->query("SELECT apiKey FROM utility ORDER BY counter DESC LIMIT 1");
 
+		return ($query->result_array()[0]["apiKey"]);
+	}
     function register()
     {
 		$data = $this->input->post();
@@ -42,16 +52,36 @@ class Manage extends Application
 		$username = $this->input->post("username");
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$response = file_get_contents('https://umbrella.jlparry.com/work/registerme/'.$username.'/'.$password);
-			$return = explode(" ", $response)[0];
-			echo $return," ";
-			if($return ==='Ok'){
+			$return = explode(" ", $response);
+			if($return[0] ==='Ok'){
 			$apiKey = explode(" ", $response)[1];
-			echo $apiKey;
+			
+			$data = array(
+				'apiKey' => $apiKey,
+				'alive' => 1
+			);
+			$this->db->insert("utility", $data);
+			
 			}
 		}
 		
 		$this->index();
 	}
+	
+	public function allCompleted(){
+		$bots="";
+ 		foreach($this->completeBots->all() as $bot){
+			$bots[] = array(
+				'model'			=>	$bot->model,
+				'headCaCode'		=>	$bot->headCaCode,
+				'torsoCaCode'		=>	$bot->torsoCaCode,
+				'bottomCaCode'	=>	$bot->bottomCaCode,
+			); 
+		}
+			return $bots;
+	}
+	
+	
 		/*
         //here we're trying to connect to the server by obtaining login info
         if(isset($_POST['name']) && isset($_POST['token']))

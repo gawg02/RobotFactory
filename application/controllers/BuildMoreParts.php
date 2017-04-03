@@ -31,7 +31,7 @@ class BuildMoreParts extends Application {
   {
     $query = $this->db->query("SELECT apiKey FROM utility ORDER BY counter DESC LIMIT 1");
 
-    return ($query->result_array())[0]["apiKey"];
+    return ($query->result_array()[0]["apiKey"]);
   }
 
   public function addParts($parts)
@@ -66,8 +66,8 @@ class BuildMoreParts extends Application {
         'item' => 'part',
         'series' => $part['model'],
         'piece' => $part['piece'],
-        'plantBuiltAt' => 'head office',
-        'dateTimeBuilt' => $date->format('Y-m-d H:i:s.')
+        'shipment' => 'head office',
+        'timeofTransaction' => $date->format('Y-m-d H:i:s.')
         );
 
       $this->db->insert("salesHistory", $data);
