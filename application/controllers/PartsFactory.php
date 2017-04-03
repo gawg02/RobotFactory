@@ -14,7 +14,9 @@ class PartsFactory extends Application {
 
 
     //$this->data = array_merge($this->data, $partsArray);
-    
+    $topCells="";
+	$torsoCells="";
+	$bottomCells="";
 
     $partsArray = $this->parts->getTopParts();
     foreach($partsArray as $part )
@@ -35,7 +37,7 @@ class PartsFactory extends Application {
               );
     
     $this->table->set_template($parms);
-
+	
     $rows = $this->table->make_columns($topCells, 4);
     $this->data['topTable'] = $this->table->generate($rows);
 

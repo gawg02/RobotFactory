@@ -51,7 +51,7 @@ class Manage extends Application
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$response = file_get_contents('https://umbrella.jlparry.com/work/registerme/'.$username.'/'.$password);
 			$return = explode(" ", $response);
-			echo $return[0];
+
 			if($return[0] == 'Ok'){
 		        $this->data['header'] = "REGISTERED";
 				$apiKey = explode(" ", $response)[1];
@@ -80,15 +80,15 @@ class Manage extends Application
 				
 				$torso = $bot->torsoCaCode;
 				$bottom = $bot->bottomCaCode;
-				
-				
-				$response = file_get_contents('https://umbrella.jlparry.com/work/buymybot/'.$head.'/'.$torso.'/'.$bottom);
+				$apiKey = $this->getApiKey();
+				$response = file_get_contents('https://umbrella.jlparry.com/work/buymybot/'.$head.'/'.$torso.'/'.$bottom. "?key=".$apiKey);
 				$return = explode(" ", $response);
 				if($return[0] ==='Ok'){
 					$this->completeBots->delete($head);
 				}
 			}
 		}
+		$this->index();
 	}
 	
 	
@@ -104,6 +104,4 @@ class Manage extends Application
 		}
 			return $bots;
 	}
-	
-	//47d1c9
 }
