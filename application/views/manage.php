@@ -25,7 +25,7 @@
 
         </div>
         <div class="4-md-col" id="buyme">
-			<form method="POST" action="/Manage/sell">
+			<form method="POST" action="/Manage/sellBot">
 				<table class = "table">
 						<tr>
 							<th></th>
