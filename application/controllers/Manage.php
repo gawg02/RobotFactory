@@ -16,10 +16,7 @@ class Manage extends Application
 
     function index()
     {
-        $this->load->model('Register');
-        
-        $form = $this->Register->makeForm();
-        $this->data['header'] = $form['heading'];
+        $this->data['header'] = NULL;
         $this->data['pagebody'] = 'manage';
 		$this->data['completeBots'] = $this->allCompleted();
 		$this->render();  
@@ -31,6 +28,7 @@ class Manage extends Application
 		$response = file_get_contents('https://umbrella.jlparry.com/work/rebootme?key='.$apiKey);
 		$return = explode(" ", $response)[0];
 		if($return ==='Ok'){
+	        $this->data['header'] = "reboot successfull";
 			$this->db->empty_table('completebots');
 			$this->db->empty_table('parts');
 			$this->db->empty_table('saleshistory');
@@ -53,8 +51,10 @@ class Manage extends Application
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$response = file_get_contents('https://umbrella.jlparry.com/work/registerme/'.$username.'/'.$password);
 			$return = explode(" ", $response);
-			if($return[0] ==='Ok'){
-			$apiKey = explode(" ", $response)[1];
+			echo $return[0];
+			if($return[0] == 'Ok'){
+		        $this->data['header'] = "REGISTERED";
+				$apiKey = explode(" ", $response)[1];
 			
 			$data = array(
 				'apiKey' => $apiKey,
@@ -82,7 +82,7 @@ class Manage extends Application
 				$bottom = $bot->bottomCaCode;
 				
 				
-				$response = file_get_contents('https://umbrella.jlparry.com/work/buymybot/'.$head'/'.$torso'/'.$bottom);
+				$response = file_get_contents('https://umbrella.jlparry.com/work/buymybot/'.$head.'/'.$torso.'/'.$bottom);
 				$return = explode(" ", $response);
 				if($return[0] ==='Ok'){
 					$this->completeBots->delete($head);
@@ -106,4 +106,4 @@ class Manage extends Application
 	}
 	
 	//47d1c9
-    
+}
