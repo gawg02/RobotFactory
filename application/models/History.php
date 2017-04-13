@@ -1,71 +1,82 @@
 <?php
 
 /**
- * This is a "CMS" model for quotes, but with bogus hard-coded data,
+ * This is a "CMS" model for RobotFactory, but with bogus hard-coded data,
  * so that we don't have to worry about any database setup.
  * This would be considered a "mock database" model.
  *
- * @author jim
+ * @author Renz
  */
 class history extends CI_Model {
-	// The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
-	var $data = array(
-		array(
-			'id' => '1', 
-			'purchase' => 'purchase #1', 
-			'assemblies' => 'assemblies #1', 
-			'shipment' => 'shipment #1',
-			'time' => 'time #1'),
-		array(
-			'id' => '2', 
-			'purchase' => 'purchase #2', 
-			'assemblies' => 'assemblies #2', 
-			'shipment' => 'shipment #2',
-			'time' => 'time #2'),
-		array(
-			'id' => '3', 
-			'purchase' => 'purchase #3', 
-			'assemblies' => 'assemblies #3', 
-			'shipment' => 'shipment #3',
-			'time' => 'time #3'),
-		array(
-			'id' => '4', 
-			'purchase' => 'purchase #4', 
-			'assemblies' => 'assemblies #4', 
-			'shipment' => 'shipment #4',
-			'time' => 'time #4'),
-		array(
-			'id' => '5', 
-			'purchase' => 'purchase #5', 
-			'assemblies' => 'assemblies #5', 
-			'shipment' => 'shipment #5',
-			'time' => 'time #5'),
-		array(
-			'id' => '6', 
-			'purchase' => 'purchase #6', 
-			'assemblies' => 'assemblies #6', 
-			'shipment' => 'shipment #6',
-			'time' => 'time #6'),
-	);
 	
 	// Constructor
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
-	// retrieve a single quote
-	public function get($which)
-	{
-		// iterate over the data until we find the one we want
-		foreach ($this->data as $record)
-			if ($record['id'] == $which)
-				return $record;
-		return null;
-	}
-	// retrieve all of the quotes
-	public function all()
-	{
-		return $this->data;
-	}
+    public function __construct()
+    {
+            parent::__construct();
+    }
+	
+    // retrieve a single transaction history
+    public function get($which)
+    {
+        // Loop over the data until the one we need
+        foreach ($this->db->get('salesHistory') as $record)
+                if ($record->id == $which)
+                        return $record;
+        return null;
+    }
+    // retrieve all of the transaction history entries
+    public function all($column = 'timestamp', $filterModel = 'all', $filterLine = 'all')
+    {
+        $this->db->order_by($column, 'asc');
+        $this->db->from('salesHistory');
+        if($filterLine != 'all') {
+            $this->db->where('series', $filterLine);
+        }
+        if($filterModel != 'all') {
+            $this->db->where('model', $filterModel);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+	
+	//filters the history entry 
+    public function filter($filter, $column = 'timestamp') {
+        $this->db->order_by($column, 'asc');
+        $this->db->from('salesHistory');
+        $this->db->where('series', "household");
+        $query = $this->db->get();
+        return $query->result();
+    }
+	//get the size of list
+    public function size() {
+        return sizeof($this->all());
+    }
+	
+    // retrieves total amount spent
+    public function totalSpent() {
+        $total = 0;
+        foreach ($this->all() as $record)
+            if ($record->transactionType == 'purchase')
+                $total += $record->cost;
+        return $total;
+    }
+	
+    // retrieves total amount earned
+    public function totalEarned() {
+        $total = 0;
+        foreach ($this->all() as $record)
+            if ($record->transactionType == 'return' || $record->transactionType == 'sold')
+                $total += $record->cost;
+        return $total;
+    }
+	
+    //add transaction into the database
+    public function add($transaction) {
+        $this->db->insert('salesHistory', $transaction);
+    }
+	
+    //deletes all rows from table
+    public function deleteAll() {
+        $this->db->empty_table('salesHistory');
+    }
 }
