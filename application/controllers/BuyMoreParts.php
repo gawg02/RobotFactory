@@ -65,7 +65,7 @@ class BuyMoreParts extends Application {
         'model' => $part['model'],
         'piece' => $part['piece'],
         'shipment' => 'head office',
-        'timeofTransaction' => $date->format('Y-m-d H:i:s.')
+        'timestamp' => $date->format('Y-m-d H:i:s.')
         );
 
       $this->db->insert("salesHistory", $data);

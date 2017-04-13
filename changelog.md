@@ -8,6 +8,7 @@ _If your feature moves from one to another, add a log stating it's been moved._
 * Added new individual about pages. Moved to changed. (JC)
 * created database (GL)
 * added models for each of the databse tables (GL)
+* added navigation and filter to history page
 
 ##Changed Features
 * Changelog edited with examples. (JC)

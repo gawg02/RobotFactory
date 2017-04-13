@@ -113,7 +113,7 @@ CREATE TABLE `salesHistory` (
   `model` varchar(1) DEFAULT NULL,
   `piece` varchar(6) DEFAULT NULL,
   `shipment` varchar(14) DEFAULT NULL,
-  `timeofTransaction` DATETIME NOT NULL
+  `timestamp` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `salesHistory` (
 --
 
 /*
-INSERT INTO `salesHistory`(`cost`, `transactionType`, `item`, `series`, `model`, `piece`, `shipment`, `timeofTransaction`) VALUES
+INSERT INTO `salesHistory`(`cost`, `transactionType`, `item`, `series`, `model`, `piece`, `shipment`, `timestamp`) VALUES
 (100, 'purchase', 'parts Box', '', '', '', 'head office', "2017-03-31 09:00:00"),
 (25, 'sale', 'bot', 'household', 'C', '', 'nectarine', "2017-03-27 15:43:22"), 
 (50, 'sale', 'bot', 'butler', 'M', '', 'head office', "2017-03-20 09:33:18"), 
@@ -133,7 +133,7 @@ INSERT INTO `salesHistory`(`cost`, `transactionType`, `item`, `series`, `model`,
 */
 
 
-INSERT INTO `salesHistory`(`id`,`cost`, `transactionType`, `item`, `series`, `model`, `piece`, `shipment`, `timeofTransaction`) VALUES
+INSERT INTO `salesHistory`(`id`,`cost`, `transactionType`, `item`, `series`, `model`, `piece`, `shipment`, `timestamp`) VALUES
 (1, 100, 'purchase', 'parts Box', '', '', '', 'head office', "2017-03-31 09:00:00"),
 (2, 25, 'sale', 'bot', 'household', 'C', '', 'nectarine', "2017-03-27 15:43:22"), 
 (3, 50, 'sale', 'bot', 'butler', 'M', '', 'head office', "2017-03-20 09:33:18"), 
